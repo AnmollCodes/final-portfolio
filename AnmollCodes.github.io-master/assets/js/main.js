@@ -1,13 +1,6 @@
-/**
-* Template Name: Personal - v2.1.0
-* Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
 !(function($) {
   "use strict";
 
-  // Nav Menu
   $(document).on('click', '.nav-menu a, .mobile-nav a', function(e) {
     if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
       var hash = this.hash;
@@ -49,7 +42,6 @@
     }
   });
 
-  // Activate/show sections on load with hash links
   if (window.location.hash) {
     var initial_nav = window.location.hash;
     if ($(initial_nav).length) {
@@ -63,7 +55,6 @@
     }
   }
 
-  // Mobile Navigation
   if ($('.nav-menu').length) {
     var $mobile_nav = $('.nav-menu').clone().prop({
       class: 'mobile-nav d-lg-none'
@@ -92,13 +83,11 @@
     $(".mobile-nav, .mobile-nav-toggle").hide();
   }
 
-  // jQuery counterUp
   $('[data-toggle="counter-up"]').counterUp({
     delay: 10,
     time: 1000
   });
 
-  // Skills section
   $('.skills-content').waypoint(function() {
     $('.progress .progress-bar').each(function() {
       $(this).css("width", $(this).attr("aria-valuenow") + '%');
@@ -107,7 +96,37 @@
     offset: '80%'
   });
 
-  // Testimonials carousel (uses the Owl Carousel library)
+  $(window).on('load', function() {
+    // Fade in achievements on load
+    $('.achievement-box').each(function(index) {
+      $(this).delay(300 * index).queue(function(next) {
+        $(this).addClass('visible'); // Trigger fade-in
+        next();
+      });
+    });
+
+    $('.achievement-box').waypoint(function() {
+      $(this.element).addClass('visible bounce'); 
+    }, {
+      offset: '80%' 
+    });
+
+    function typeWriter(element, text, i) {
+      if (i < text.length) {
+        $(element).text(text.substring(0, i + 1));
+        setTimeout(function() {
+          typeWriter(element, text, i + 1);
+        }, 100);
+      }
+    }
+
+    $('.achievement-title').each(function() {
+      var text = $(this).text();
+      $(this).text(''); 
+      typeWriter(this, text, 0); 
+    });
+  });
+
   $(".testimonials-carousel").owlCarousel({
     autoplay: true,
     dots: true,
@@ -125,7 +144,6 @@
     }
   });
 
-  // Porfolio isotope and filter
   $(window).on('load', function() {
     var portfolioIsotope = $('.portfolio-container').isotope({
       itemSelector: '.portfolio-item',
@@ -143,7 +161,6 @@
 
   });
 
-  // Initiate venobox (lightbox feature used in portofilo)
   $(document).ready(function() {
     $('.venobox').venobox();
   });
