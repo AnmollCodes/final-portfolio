@@ -1053,13 +1053,13 @@ h4{
 }
 
 .flip-card-front {
-  background-color: #273456; 
-  color: rgb(252, 250, 250); 
+  background-color: #09203a; 
+  color: #1c7d32;  
 }
 
 .flip-card-back {
-  background-color: #403a3ac7;
-  color: white; 
+  background-color: #72879d; 
+  color: white;
   transform: rotateY(180deg); 
 }
 
@@ -1152,3 +1152,5 @@ p.description {
   overflow: hidden;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+
