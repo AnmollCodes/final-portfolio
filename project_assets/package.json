@@ -1,0 +1,18 @@
+{
+    "name": "anmollcodes-portfolio",
+    "version": "1.0.0",
+    "homepage": "https://AnmollCodes.github.io/AnmollCodes.github.io-master",
+    "scripts": {
+      "start": "react-scripts start",
+      "build": "react-scripts build",
+      "predeploy": "npm run build",
+      "deploy": "gh-pages -d build"
+    },
+    "dependencies": {
+      "gh-pages": "^6.1.1",
+      "react": "^17.0.2",
+      "react-dom": "^17.0.2",
+      "react-scripts": "4.0.3"
+    }
+  }
+  
